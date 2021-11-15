@@ -1,22 +1,14 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <mlx.h>
-
-typedef struct    data_s
-{
-    void          *mlx_ptr;
-    void          *mlx_win;
-}                 data_t;
+#include "so_long.h"
 
 int main(void)
 {
-    data_t        data;
+    t_win_render    *game_window;
+    game_window = malloc(sizeof(game_window));
 
-    if ((data.mlx_ptr = mlx_init()) == NULL)
+    if ((game_window->mlx = mlx_init()) == NULL)
         return (EXIT_FAILURE);
-    if ((data.mlx_win = mlx_new_window(data.mlx_ptr, 640, 480, "Hello world Vini")) == NULL)
+    if ((game_window->win = mlx_new_window(game_window->mlx, 640, 480, "Hello world Vini")) == NULL)
         return (EXIT_FAILURE);
-    mlx_loop(data.mlx_ptr);
+    mlx_loop(game_window->mlx);
     return (EXIT_SUCCESS);
 }
