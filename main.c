@@ -2,7 +2,9 @@
 
 int main(int argc, char *argv[])
 {
-    if(!ft_get_map(argc, argv))
+    t_game_set  *game_set;
+
+    if(!ft_get_map(argc, argv, &game_set))
       return (FAILURE_EXIT);
     if(!ft_start())
         return (FAILURE_EXIT);
