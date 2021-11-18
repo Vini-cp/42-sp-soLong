@@ -10,6 +10,12 @@
 # define SUCCESS_EXIT 1
 # define FAILURE_EXIT 0
 
+# define PLAYER "./assets/player.xpm"
+# define WALL "./assets/wall.xpm"
+# define BACKGROUND "./assets/background.xpm"
+# define EXIT "./assets/exit.xpm"
+# define COLLECTIBLE "./assets/collectible.xpm"
+
 typedef struct win_render {
 	void	*mlx;
 	void	*win;
@@ -23,6 +29,11 @@ typedef struct game_set
 	int		player_position_x;
 	int		player_position_y;
   int   player_movements;
+  void	*player;
+  void	*wall;
+  void	*background;
+	void	*exit;
+	void	*collectible;
 }	t_game_set;
 
 int ft_start(void);
