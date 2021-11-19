@@ -1,6 +1,6 @@
 #include "../so_long.h"
 
-int ft_start(t_game_set *game_set)
+int ft_game_loop(t_game_set *game_set)
 {
   t_win_render *game_window;
 
@@ -12,6 +12,6 @@ int ft_start(t_game_set *game_set)
     return (FAILURE_EXIT);
   ft_build_images(&game_set, &game_window);
   ft_render(game_set, game_window);
-  mlx_loop(game_window->mlx);
+	ft_key_hook(-1, &vars);
   return (SUCCESS_EXIT);
 }

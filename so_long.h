@@ -36,7 +36,7 @@ typedef struct game_set
 	void	*collectible;
 }	t_game_set;
 
-int ft_start(t_game_set *game_set);
+int ft_game_loop(t_game_set *game_set)
 int	ft_get_map(int argc, char *argv[], t_game_set **game_set);
 int	ft_check_file_extension(char *file_name);
 void	ft_build_images(t_game_set **game_set, t_win_render **game_window);
