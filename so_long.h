@@ -6,7 +6,7 @@
 # include "printf/include/printf.h"
 
 # define WINDOW_NAME "soLong game"
-# define TILE_WIDTH 32
+# define TILE_WIDTH 80
 # define SUCCESS_EXIT 1
 # define FAILURE_EXIT 0
 
@@ -36,8 +36,10 @@ typedef struct game_set
 	void	*collectible;
 }	t_game_set;
 
-int ft_start(void);
+int ft_start(t_game_set *game_set);
 int	ft_get_map(int argc, char *argv[], t_game_set **game_set);
 int	ft_check_file_extension(char *file_name);
+void	ft_build_images(t_game_set **game_set, t_win_render **game_window);
+void	ft_render(t_game_set *game_set, t_win_render *game_window);
 
 #endif
