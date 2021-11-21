@@ -87,6 +87,8 @@ int	ft_get_map(int argc, char *argv[], t_game_set **game_set)
     {
       if(!ft_read_map(argv[1], &game_set))
         return (FAILURE_EXIT);
+      if(!ft_get_info_from_map(&game_set))
+        return (FAILURE_EXIT);
       return (SUCCESS_EXIT);
     }
     return (FAILURE_EXIT);
