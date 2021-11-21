@@ -6,7 +6,7 @@
 # include "printf/include/printf.h"
 
 # define WINDOW_NAME "soLong game"
-# define TILE_WIDTH 80
+# define TILE_WIDTH 64
 # define SUCCESS_EXIT 1
 # define FAILURE_EXIT 0
 
