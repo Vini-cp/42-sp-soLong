@@ -22,7 +22,7 @@
 # define EXIT "./assets/exit.xpm"
 # define COLLECTIBLE "./assets/collectible.xpm"
 
-# define ORANGE 0xFE6500
+# define ORANGE 0xFFFF00
 
 typedef struct win_render {
 	void	*mlx;
@@ -31,29 +31,29 @@ typedef struct win_render {
 
 typedef struct game_set
 {
-  char	**map;
-	int		map_height;
-	int		map_length;
-	int		player_position_x;
-	int		player_position_y;
-  int   player_movements;
-  int   no_collectibles;
-  int   no_exits;
-  int   game_won;
-  void	*player;
-  void	*wall;
-  void	*background;
-	void	*exit;
-	void	*collectible;
-  t_win_render *game_window;
+	char					**map;
+	int						map_height;
+	int						map_length;
+	int						player_position_x;
+	int						player_position_y;
+	int						player_movements;
+	int						no_collectibles;
+	int						no_exits;
+	int						game_won;
+	void					*player;
+	void					*wall;
+	void					*background;
+	void					*exit;
+	void					*collectible;
+	t_win_render	*game_window;
 }	t_game_set;
 
-int ft_game_loop(t_game_set *game_set);
-int	ft_get_map(int argc, char *argv[], t_game_set **game_set);
-int	ft_check_file_extension(char *file_name);
-int	ft_get_info_from_map(t_game_set ***game_set);
-int	ft_key_hook(int keycode, t_game_set **game_set);
-int	ft_exit_hook(t_game_set **game_set);
+int		ft_game_loop(t_game_set *game_set);
+int		ft_get_map(int argc, char *argv[], t_game_set **game_set);
+int		ft_check_file_extension(char *file_name);
+int		ft_get_info_from_map(t_game_set ***game_set);
+int		ft_key_hook(int keycode, t_game_set **game_set);
+int		ft_exit_hook(t_game_set **game_set);
 void	ft_build_images(t_game_set **game_set, t_win_render **game_window);
 void	ft_render(t_game_set *game_set, t_win_render *game_window);
 void	ft_free(t_game_set *game_set, t_win_render *game_window);
