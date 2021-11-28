@@ -46,29 +46,30 @@ static int	check_map_conditions(char *fn, int *h, int *l)
 	if (!check_first_last_row(ft_split(row, ' '), *l))
 		return (FAILURE_EXIT);
 	close(fd);
+	free(row);
 	return (SUCCESS_EXIT);
 }
 
-static int	ft_read_map(char *fn, t_game_set ***game_set)
+static int	ft_read_map(char *fn, t_game_set **game_set)
 {
 	int		fd;
 	int		out_read;
 	int		row;
 
-	if (!check_map_conditions(fn, &(**game_set)->map_height,
-			&(**game_set)->map_length))
+	if (!check_map_conditions(fn, &(*game_set)->map_height,
+			&(*game_set)->map_length))
 		return (FAILURE_EXIT);
 	fd = open(fn, O_RDONLY);
 	if (fd < 0)
 		return (FAILURE_EXIT);
-	(**game_set)->map = malloc(sizeof(char **) * (**game_set)->map_height);
-	if (!((**game_set)->map))
+	(*game_set)->map = malloc(sizeof(char **) * (*game_set)->map_height);
+	if (!((*game_set)->map))
 		return (FAILURE_EXIT);
 	row = 0;
 	out_read = 1;
 	while (out_read == 1)
 	{
-		out_read = get_next_line(fd, &(**game_set)->map[row]);
+		out_read = get_next_line(fd, &(*game_set)->map[row]);
 		row++;
 	}
 	close(fd);
@@ -80,7 +81,7 @@ int	ft_get_map(int argc, char *argv[], t_game_set **game_set)
 	(*game_set) = malloc(sizeof(t_game_set));
 	if (argc == 2 && ft_check_file_extension(argv[1]))
 	{
-		if (!ft_read_map(argv[1], &game_set))
+		if (!ft_read_map(argv[1], game_set))
 			return (FAILURE_EXIT);
 		if (!ft_get_info_from_map(game_set))
 			return (FAILURE_EXIT);
