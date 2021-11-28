@@ -51,11 +51,11 @@ static void	ft_render_game(t_game_set *game_set, t_win_render *game_window)
 	}
 }
 
-void	ft_render(t_game_set *game_set, t_win_render *game_window)
+void	ft_render(t_game_set **game_set, t_win_render *game_window)
 {
 	mlx_clear_window(game_window->mlx, game_window->win);
-	if (game_set->game_won == 1)
-		ft_render_exit(game_set, game_window);
+	if ((*game_set)->game_won == 1)
+		ft_render_exit(*game_set, game_window);
 	else
-		ft_render_game(game_set, game_window);
+		ft_render_game(*game_set, game_window);
 }

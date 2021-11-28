@@ -48,14 +48,14 @@ typedef struct game_set
 	t_win_render	*game_window;
 }	t_game_set;
 
-int		ft_game_loop(t_game_set *game_set);
+int		ft_game_loop(t_game_set **game_set);
 int		ft_get_map(int argc, char *argv[], t_game_set **game_set);
 int		ft_check_file_extension(char *file_name);
 int		ft_get_info_from_map(t_game_set ***game_set);
 int		ft_key_hook(int keycode, t_game_set **game_set);
 int		ft_exit_hook(t_game_set **game_set);
 void	ft_build_images(t_game_set **game_set, t_win_render **game_window);
-void	ft_render(t_game_set *game_set, t_win_render *game_window);
-void	ft_free(t_game_set *game_set, t_win_render *game_window);
+void	ft_render(t_game_set **game_set, t_win_render *game_window);
+void	ft_free(t_game_set **game_set, t_win_render *game_window);
 
 #endif

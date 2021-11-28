@@ -34,3 +34,6 @@ fclean: clean
 
 re: fclean ${NAME}
 .PHONY: re
+
+test:
+	leaks -atExit -- ./so_long.a ./maps/simple.ber

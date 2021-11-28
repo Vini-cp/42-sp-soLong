@@ -46,7 +46,7 @@ int	ft_key_hook(int keycode, t_game_set **game_set)
 	{
 		mlx_destroy_window(((*game_set)->game_window)->mlx,
 			((*game_set)->game_window)->win);
-		ft_free(*game_set, (*game_set)->game_window);
+		ft_free(game_set, (*game_set)->game_window);
 		exit(SUCCESS_EXIT);
 	}
 	if (!(*game_set)->game_won)
@@ -60,6 +60,6 @@ int	ft_key_hook(int keycode, t_game_set **game_set)
 		else if (keycode == RIGHT)
 			ft_move_player(game_set, 1, 0);
 	}
-	ft_render(*game_set, (*game_set)->game_window);
+	ft_render(game_set, (*game_set)->game_window);
 	return (SUCCESS_EXIT);
 }

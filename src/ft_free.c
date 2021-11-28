@@ -1,22 +1,23 @@
 #include "../so_long.h"
 
-static void	ft_free_map(char ***map, int size)
+static void	ft_free_map(char **map, int size)
 {
-	int	it;
+	int	i;
 
-	it = 0;
-	while (it < size)
+	i = 0;
+	while (i < size)
 	{
-		free((*map)[it]);
-		it++;
+		free(map[i]);
+		map[i] = NULL;
+		i++;
 	}
-	free((*map));
-	(*map) = NULL;
+	free(map);
 }
 
-void	ft_free(t_game_set *game_set, t_win_render *game_window)
+void	ft_free(t_game_set **game_set, t_win_render *game_window)
 {
-	ft_free_map(&(game_set->map), game_set->map_height);
+	ft_free_map((*game_set)->map, (*game_set)->map_height);
+	(*game_set)->map = NULL;
 	free(game_set);
 	free(game_window);
 }
