@@ -17,7 +17,9 @@ CC = gcc
 
 CFLAGS = -Werror -Wall -Wextra
 
-MINILIBX = -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
+MAC_MINILIBX = -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
+
+LINUX_MINILIBX = -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 OBJS := $(*.o)
 
@@ -25,10 +27,15 @@ OBJS := $(*.o)
 
 all: $(NAME)
 
-${NAME}: ${OBJS}
+$(NAME): $(OBJS)
 	make -C ${LIBFTPATH}
 	mv $(LIBFTPATH)/${LIBFT} ${LIBFT}
-	${CC} ${CFLAGS} ${SRCS} ${OBJS} ${LIBFT} ${MINILIBX} main.c -o ${NAME}
+	$(CC) $(CFLAGS) $(SRCS) $(OBJS) $(LIBFT) $(LINUX_MINILIBX) main.c -o $(NAME)
+
+mac: ${OBJS}
+	make -C ${LIBFTPATH}
+	mv $(LIBFTPATH)/${LIBFT} ${LIBFT}
+	${CC} ${CFLAGS} ${SRCS} ${OBJS} ${LIBFT} ${MAC_MINILIBX} main.c -o ${NAME}
 
 clean:
 	make -C ${LIBFTPATH} clean
