@@ -18,6 +18,6 @@ void	ft_free(t_game_set **game_set, t_win_render *game_window)
 {
 	ft_free_map((*game_set)->map, (*game_set)->map_height);
 	(*game_set)->map = NULL;
-	free(game_set);
+	free(*game_set);
 	free(game_window);
 }

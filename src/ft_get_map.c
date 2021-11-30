@@ -46,7 +46,6 @@ static int	check_map_conditions(char *fn, int *h, int *l)
 	if (!check_first_last_row(ft_split(row, ' '), *l))
 		return (FAILURE_EXIT);
 	close(fd);
-	free(row);
 	return (SUCCESS_EXIT);
 }
 

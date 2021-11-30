@@ -3,7 +3,7 @@
 
 # include <mlx.h>
 # include <fcntl.h>
-# include "printf/include/printf.h"
+# include "libft/libft.h"
 
 # define WINDOW_NAME "soLong game"
 # define TILE_WIDTH 64
