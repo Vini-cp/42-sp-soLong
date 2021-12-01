@@ -19,7 +19,7 @@ CFLAGS = -Werror -Wall -Wextra
 
 MAC_MINILIBX = -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
 
-LINUX_MINILIBX = -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+LINUX_MINILIBX = ./mlx_linux/libmlx_Linux.a -I./mlx_linux/ -L./mlx_linux/ -lmlx -lXext -lX11
 
 OBJS := $(*.o)
 
