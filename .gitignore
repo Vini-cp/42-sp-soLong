@@ -1,2 +1,4 @@
 /so_long.a.dSYM
-*.a
+/so_long.dSYM
+so_long
+libft.a
