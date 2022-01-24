@@ -20,7 +20,7 @@ CFLAGS = -Werror -Wall -Wextra
 
 MAC_MINILIBX = -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
 
-LINUX_MINILIBX = ./mlx_linux/libmlx_Linux.a -I./mlx_linux/ -L./mlx_linux/ -lmlx -lXext -lX11
+LINUX_MINILIBX = -L ./minilibx -lmlx -lXext -lX11
 
 OBJS := $(*.o)
 
@@ -30,11 +30,13 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C ${LIBFTPATH}
+	make -C ./minilibx
 	mv $(LIBFTPATH)/${LIBFT} ${LIBFT}
-	${CC} ${CFLAGS} ${SRCS} ${OBJS} ${LIBFT} ${MAC_MINILIBX} main.c -o ${NAME}
+	${CC} ${CFLAGS} ${SRCS} ${OBJS} ${LIBFT} ${LINUX_MINILIBX} main.c -o ${NAME}
 
 clean:
 	make -C ${LIBFTPATH} clean
+	make -C ./minilibx clean
 	rm -rf *.o
 
 fclean: clean
