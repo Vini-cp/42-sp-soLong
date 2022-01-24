@@ -1,7 +1,8 @@
-NAME = so_long.a
+NAME = so_long
 
 SRC = ft_game_loop.c ft_get_map.c ft_check_file_extension.c ft_build_images.c \
-ft_get_info_from_map.c ft_key_hook.c ft_exit_hook.c ft_render.c ft_free.c
+ft_get_info_from_map.c ft_key_hook.c ft_exit_hook.c ft_render.c ft_free.c \
+ft_set_configs.c ft_exit_error.c
 
 FOLDER = src
 
@@ -30,11 +31,6 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	make -C ${LIBFTPATH}
 	mv $(LIBFTPATH)/${LIBFT} ${LIBFT}
-	$(CC) $(CFLAGS) $(SRCS) $(OBJS) $(LIBFT) $(LINUX_MINILIBX) main.c -o $(NAME)
-
-mac: ${OBJS}
-	make -C ${LIBFTPATH}
-	mv $(LIBFTPATH)/${LIBFT} ${LIBFT}
 	${CC} ${CFLAGS} ${SRCS} ${OBJS} ${LIBFT} ${MAC_MINILIBX} main.c -o ${NAME}
 
 clean:
@@ -49,4 +45,7 @@ fclean: clean
 re: fclean ${NAME}
 
 test:
-	leaks -atExit -- ./so_long.a ./maps/simple.ber
+	./so_long ./maps/simple.ber
+
+leak:
+	leaks -atExit -- ./so_long ./maps/simple.ber
