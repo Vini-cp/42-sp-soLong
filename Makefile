@@ -19,7 +19,7 @@ LIBRARIES = -L ./minilibx -lmlx -lXext -lX11 -L ./libft -lft
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJ)
 	make -C ./minilibx
 	make -C ${LIBFTPATH}
 	$(CC) $(CFLAGS) $(OBJ) $(LIBRARIES) -o $(NAME)
