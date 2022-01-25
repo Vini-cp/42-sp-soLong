@@ -6,7 +6,7 @@
 /*   By: vcordeir <vcordeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 20:11:25 by vcordeir          #+#    #+#             */
-/*   Updated: 2021/11/23 18:42:03 by vcordeir         ###   ########.fr       */
+/*   Updated: 2022/01/24 21:24:55 by vcordeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 void				ft_strrev(char *str);
-int					get_next_line(int fd, char **line);
 /* printf files */
 char				*ft_utoa(size_t num, int base, int capitalize);
 char				*ft_ptoa(uintptr_t num, int prec);
