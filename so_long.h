@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../minilibx/mlx.h"
+# include "./minilibx/mlx.h"
 # include "libft/libft.h"
 # include <fcntl.h>
 
