@@ -1,9 +1,8 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./minilibx/mlx.h"
+# include <mlx.h>
 # include "./libft/libft.h"
-# include "../42-gnl/get_next_line.h"
 # include <fcntl.h>
 
 # define WINDOW_NAME "soLong game"
