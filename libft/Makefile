@@ -20,18 +20,15 @@ SRCS = $(addprefix ${FOLDER}/, ${SRC})
 
 OBJ = $(SRCS:.c=.o)
 
-RUNFLAGS = -Wall -Werror -Wextra
+RUNFLAGS = -g3 -Wextra -Werror -Wall
 
-CFLAGS += -Wall -Werror -Wextra -I./ -c
-
-.PHONY: all clean fclean re
+%.o: %.c
+	gcc $(CFLAGS) -c $< -o $@
 
 all:    $(NAME)
 
 $(NAME): $(OBJ)
-	gcc $(CFLAGS) $(SRCS)
-	ar rc $(NAME) $(OBJ)
-	rm *.o
+	ar crs $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
@@ -45,3 +42,5 @@ test:
 	gcc $(RUNFLAGS) $(TEST) ./$(NAME) \
 	&& ./a.out \
 	&& rm ./a.out
+
+.PHONY: all clean fclean re
