@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 03:18:31 by coder             #+#    #+#             */
+/*   Updated: 2022/01/30 03:19:09 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -35,8 +47,8 @@ typedef struct game_set
 	int						no_collectibles;
 	int						no_exits;
 	int						game_won;
-  int						img_width;
-  int						img_height;
+	int						img_width;
+	int						img_height;
 	void					*player;
 	void					*wall;
 	void					*background;
@@ -57,6 +69,5 @@ int		ft_exit_error(t_game_set *game_set, char *message);
 void	ft_build_images(t_game_set *game_set);
 void	ft_render(t_game_set *game_set);
 void	ft_free(t_game_set *game_set);
-
 
 #endif

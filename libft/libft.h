@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 20:11:25 by vcordeir          #+#    #+#             */
-/*   Updated: 2022/01/30 03:08:28 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/30 03:14:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ char				*ft_ctoa(char c);
 void				to_string(const char *f, va_list args, t_flags ***lst);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstadd_front(t_list **lst, t_list *new);
-int         ft_lstpop_back(t_list **lst);
-int         ft_lstpop_front(t_list **lst);
+int					ft_lstpop_back(t_list **lst);
+int					ft_lstpop_front(t_list **lst);
 void				ft_lstclear(t_list **lst);
 void				ft_lstdelone(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(int));

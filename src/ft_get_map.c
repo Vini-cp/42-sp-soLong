@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_get_map.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 03:20:33 by coder             #+#    #+#             */
+/*   Updated: 2022/01/30 03:22:58 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long.h"
 
 static int	check_first_last_row(char *row, int size)
@@ -39,8 +51,7 @@ static int	check_map_conditions(char *fn, int *h, int *l)
 	{
 		free(row);
 		out_read = get_next_line(fd, &row);
-		if (!check_first_last_column(row, *l)
-			|| *l != (int) ft_strlen(row))
+		if (!check_first_last_column(row, *l) || *l != (int) ft_strlen(row))
 			return (FAILURE_EXIT);
 		*h += 1;
 	}

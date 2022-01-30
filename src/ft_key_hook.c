@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_key_hook.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 03:20:20 by coder             #+#    #+#             */
+/*   Updated: 2022/01/30 03:21:16 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long.h"
 
-static void ft_write_nb_mov(t_game_set *game_set)
+static void	ft_write_nb_mov(t_game_set *game_set)
 {
-	char *nbr;
+	char	*nbr;
 
 	nbr = ft_itoa(game_set->player_movements);
 	write(1, "No of movements: ", 17);
