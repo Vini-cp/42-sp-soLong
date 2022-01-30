@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_file_extension.c                          :+:      :+:    :+:   */
+/*   ft_free_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 03:19:28 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 03:19:29 by coder            ###   ########.fr       */
+/*   Created: 2022/01/30 22:00:26 by coder             #+#    #+#             */
+/*   Updated: 2022/01/30 22:53:01 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	ft_check_file_extension(char *file_name)
+void	ft_free_map(t_game_set *game_set)
 {
-	char	*extension;
+	int	i;
 
-	extension = (char *) &file_name[(ft_strlen(file_name) - 4)];
-	if (ft_strncmp(extension, ".ber", 4) == 0)
-		return (SUCCESS_EXIT);
-	return (FAILURE_EXIT);
+	i = 0;
+	while (i < game_set->map_height)
+	{
+		free(game_set->map[i]);
+		i++;
+	}
+	free(game_set->map);
 }

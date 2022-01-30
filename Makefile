@@ -1,8 +1,8 @@
 NAME = so_long
 
-SRC = $(addprefix src/, ft_get_map.c ft_check_file_extension.c ft_build_images.c \
+SRC = $(addprefix src/, ft_get_map.c ft_build_images.c ft_check_map.c \
 ft_get_info_from_map.c ft_key_hook.c ft_exit_hook.c ft_render.c ft_free.c \
-ft_set_configs.c ft_exit_error.c ft_game_loop.c) 
+ft_set_configs.c ft_exit_error.c ft_game_loop.c ft_free_map.c)
 
 LIBFTPATH = ./libft
 

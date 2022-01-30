@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 03:20:16 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 03:20:17 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/30 20:38:47 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ static void	ft_render_image(t_game_set *game_set, int x, int y)
 	map_pos = game_set->map[y][x];
 	x *= TILE_WIDTH;
 	y *= TILE_WIDTH;
-	if (map_pos == '1')
+	if (map_pos == '0')
+		ft_put_image(game_set, game_set->background, x, y);
+	else if (map_pos == '1')
 		ft_put_image(game_set, game_set->wall, x, y);
 	else if (map_pos == 'C')
 		ft_put_image(game_set, game_set->collectible, x, y);

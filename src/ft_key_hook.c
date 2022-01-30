@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 03:20:20 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 03:21:16 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/30 21:01:42 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_move_player(t_game_set *game_set, int x, int y)
 	new_x_position = x + game_set->player_position_x;
 	new_y_position = y + game_set->player_position_y;
 	tile_type = game_set->map[new_y_position][new_x_position];
-	if (tile_type != '1')
+	if (tile_type != '1' && (tile_type != 'E' || game_set->no_collectibles == 0))
 	{
 		ft_update_player_position(game_set, new_x_position, new_y_position);
 		if (tile_type == 'C')

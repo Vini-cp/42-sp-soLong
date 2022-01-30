@@ -6,60 +6,42 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 03:20:33 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 03:22:58 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/30 22:08:38 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static int	check_first_last_row(char *row, int size)
+static int	ft_check_file_extension(char *file_name)
 {
-	int	i;
+	char	*extension;
 
-	i = 0;
-	while (i < size)
-	{
-		if (row[i] != '1')
-			return (FAILURE_EXIT);
-		i++;
-	}
-	return (SUCCESS_EXIT);
+	extension = (char *) &file_name[(ft_strlen(file_name) - 4)];
+	if (ft_strncmp(extension, ".ber", 4) == 0)
+		return (SUCCESS_EXIT);
+	return (FAILURE_EXIT);
 }
 
-static int	check_first_last_column(char *row, int size)
-{
-	if (row[0] != '1' || row[size - 1] != '1')
-		return (FAILURE_EXIT);
-	return (SUCCESS_EXIT);
-}
-
-static int	check_map_conditions(char *fn, int *h, int *l)
+static int	get_nbr_of_lines(char *fn)
 {
 	int		fd;
 	int		out_read;
+	int		height;
 	char	*row;
 
+	out_read = 1;
+	height = 0;
 	fd = open(fn, O_RDONLY);
 	if (fd < 0)
-		return (FAILURE_EXIT);
-	out_read = get_next_line(fd, &row);
-	*l = (int) ft_strlen(row);
-	*h = 1;
-	if (!check_first_last_row(row, *l))
-		return (FAILURE_EXIT);
+		return (height);
 	while (out_read == 1)
 	{
-		free(row);
 		out_read = get_next_line(fd, &row);
-		if (!check_first_last_column(row, *l) || *l != (int) ft_strlen(row))
-			return (FAILURE_EXIT);
-		*h += 1;
+		free(row);
+		height++;
 	}
-	if (!check_first_last_row(row, *l))
-		return (FAILURE_EXIT);
 	close(fd);
-	free(row);
-	return (SUCCESS_EXIT);
+	return (height);
 }
 
 static int	ft_read_map(char *fn, t_game_set *game_set)
@@ -68,11 +50,9 @@ static int	ft_read_map(char *fn, t_game_set *game_set)
 	int		out_read;
 	int		row;
 
-	if (!check_map_conditions(fn, &game_set->map_height,
-			&game_set->map_length))
-		return (FAILURE_EXIT);
+	game_set->map_height = get_nbr_of_lines(fn);
 	fd = open(fn, O_RDONLY);
-	if (fd < 0)
+	if (fd < 0 || game_set->map_height == 0)
 		return (FAILURE_EXIT);
 	game_set->map = malloc(sizeof(char **) * game_set->map_height);
 	if (!(game_set->map))
@@ -93,8 +73,6 @@ int	ft_get_map(int argc, char *argv[], t_game_set *game_set)
 	if (argc == 2 && ft_check_file_extension(argv[1]))
 	{
 		if (!ft_read_map(argv[1], game_set))
-			return (FAILURE_EXIT);
-		if (!ft_get_info_from_map(game_set))
 			return (FAILURE_EXIT);
 		return (SUCCESS_EXIT);
 	}
