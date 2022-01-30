@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 22:05:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 22:49:54 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/30 23:11:49 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	check_first_last_row(char *row)
 {
 	int	i;
-	int length;
+	int	length;
 
 	i = 0;
 	length = ft_strlen(row);
@@ -31,7 +31,7 @@ static int	check_first_last_row(char *row)
 static int	check_middle_row(char *row)
 {
 	int	i;
-	int length;
+	int	length;
 
 	i = 1;
 	length = ft_strlen(row);
@@ -39,7 +39,8 @@ static int	check_middle_row(char *row)
 		return (FAILURE_EXIT);
 	while (i < length - 1)
 	{
-		if (row[i] != 'C' && row[i] != 'E' && row[i] != 'P' && row[i] != '0' && row[i] != '1')
+		if (row[i] != 'C' && row[i] != 'E' && row[i] != 'P'
+			&& row[i] != '0' && row[i] != '1')
 			return (FAILURE_EXIT);
 		i++;
 	}

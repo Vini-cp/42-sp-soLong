@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 03:18:31 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 22:56:47 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/30 23:14:51 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <mlx.h>
 # include "./libft/libft.h"
 # include <fcntl.h>
-#include <stdio.h>
 
 # define WINDOW_NAME "soLong game"
 # define TILE_WIDTH 32
@@ -66,7 +65,8 @@ int		ft_get_info_from_map(t_game_set *game_set);
 int		ft_key_hook(int keycode, t_game_set *game_set);
 int		ft_exit_hook(t_game_set *game_set);
 int		ft_set_configs(t_game_set *game_set);
-int		ft_exit_error(t_game_set *game_set, char *message, void (*f)(t_game_set *));
+int		ft_exit_error(t_game_set *game_set, char *message,
+			void (*f)(t_game_set *));
 void	ft_build_images(t_game_set *game_set);
 void	ft_render(t_game_set *game_set);
 void	ft_free_map(t_game_set *game_set);
