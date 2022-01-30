@@ -9,6 +9,6 @@ int	main(int argc, char *argv[])
 	if (!ft_set_configs(&game_set))
 		return (ft_exit_error(&game_set, "Error\nGame window did not start correctly"));
 	if (!ft_game_loop(&game_set))
-		return (ft_exit_error(&game_set, "Error\nGame exited!"));	
+		return (ft_exit_error(&game_set, "Error\nGame exited!"));
 	return (SUCCESS_EXIT);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcordeir <vcordeir@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 20:11:25 by vcordeir          #+#    #+#             */
-/*   Updated: 2021/11/23 18:42:03 by vcordeir         ###   ########.fr       */
+/*   Updated: 2022/01/30 03:08:28 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,6 @@ int					get_next_line(int fd, char **line);
 char				*ft_utoa(size_t num, int base, int capitalize);
 char				*ft_ptoa(uintptr_t num, int prec);
 char				*ft_ctoa(char c);
-int					ft_printf(const char *fmt, ...);
-int					ft_printf_putchar(char c);
-int					ft_printf_print(t_flags *lst);
-int					ft_printf_print_p_str(t_flags *lst);
-int					ft_printf_print_c(t_flags *lst);
-int					ft_printf_isflag(int c);
-void				ft_printf_empty_zeros(t_flags ***lst);
-void				ft_printf_get_flag(char *s, va_list args, t_flags ***lst);
-t_flags				*ft_printf_newflag(void);
 void				to_string(const char *f, va_list args, t_flags ***lst);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstadd_front(t_list **lst, t_list *new);

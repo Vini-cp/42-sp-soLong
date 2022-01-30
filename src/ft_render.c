@@ -19,7 +19,6 @@ static void	ft_render_image(t_game_set *game_set, int x, int y)
 	map_pos = game_set->map[y][x];
 	x *= TILE_WIDTH;
 	y *= TILE_WIDTH;
-	ft_put_image(game_set, game_set->background, x, y);
 	if (map_pos == '1')
 		ft_put_image(game_set, game_set->wall, x, y);
 	else if (map_pos == 'C')

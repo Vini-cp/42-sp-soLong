@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcordeir <vcordeir@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 21:13:29 by vcordeir          #+#    #+#             */
-/*   Updated: 2022/01/24 09:27:48 by vcordeir         ###   ########.fr       */
+/*   Updated: 2022/01/30 02:48:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ static void	ft_free_map(char **map, int map_len)
 	while (i < map_len)
 	{
 		free(map[i]);
+		map[i] = NULL;
 		i++;
 	}
 	free(map);
+	map = NULL;
 }
 
 void	ft_free(t_game_set *game_set)
@@ -32,8 +34,7 @@ void	ft_free(t_game_set *game_set)
 	mlx_destroy_image(game_set->mlx, game_set->background);
 	mlx_destroy_image(game_set->mlx, game_set->exit);
 	mlx_destroy_image(game_set->mlx, game_set->collectible);
-	ft_free_map(game_set->map, game_set->map_height);
-	// mlx_destroy_window(game_set->mlx, game_set->win);
-	// mlx_destroy_display(game_set->mlx);
+	mlx_destroy_display(game_set->mlx);
 	free(game_set->mlx);
+	ft_free_map(game_set->map, game_set->map_height);
 }

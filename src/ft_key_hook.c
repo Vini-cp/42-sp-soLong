@@ -1,5 +1,16 @@
 #include "../so_long.h"
 
+static void ft_write_nb_mov(t_game_set *game_set)
+{
+	char *nbr;
+
+	nbr = ft_itoa(game_set->player_movements);
+	write(1, "No of movements: ", 17);
+	write(1, nbr, ft_strlen(nbr));
+	write(1, "\n", 1);
+	free(nbr);
+}
+
 static void	ft_update_player_position(t_game_set *game_set, int x, int y)
 {
 	int	p_x;
@@ -18,7 +29,7 @@ static void	ft_update_player_position(t_game_set *game_set, int x, int y)
 	game_set->player_position_x = x;
 	game_set->player_position_y = y;
 	game_set->player_movements++;
-	ft_printf("No of movements: %d\n", game_set->player_movements);
+	ft_write_nb_mov(game_set);
 }
 
 static void	ft_move_player(t_game_set *game_set, int x, int y)

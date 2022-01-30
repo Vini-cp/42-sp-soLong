@@ -10,11 +10,11 @@
 # define SUCCESS_EXIT 1
 # define FAILURE_EXIT 0
 
-# define ESC 53
-# define UP 13
-# define DOWN 1
-# define LEFT 0
-# define RIGHT 2
+# define ESC 65307
+# define UP 119
+# define DOWN 115
+# define LEFT 97
+# define RIGHT 100
 
 # define PLAYER "./assets/player.xpm"
 # define WALL "./assets/wall.xpm"
