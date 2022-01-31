@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 03:20:12 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 23:00:09 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/31 01:15:56 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_set_configs(t_game_set *game_set)
 {
+	if (!ft_get_info_from_map(game_set))
+		return (FAILURE_EXIT);
 	game_set->mlx = mlx_init();
 	if (game_set->mlx == NULL)
 		return (FAILURE_EXIT);
@@ -23,7 +25,6 @@ int	ft_set_configs(t_game_set *game_set)
 	if (game_set->win == NULL)
 		return (FAILURE_EXIT);
 	ft_build_images(game_set);
-	ft_get_info_from_map(game_set);
 	ft_render(game_set);
 	return (SUCCESS_EXIT);
 }
