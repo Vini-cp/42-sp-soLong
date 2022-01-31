@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 03:18:31 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 23:14:51 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/31 04:07:29 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int		ft_exit_hook(t_game_set *game_set);
 int		ft_set_configs(t_game_set *game_set);
 int		ft_exit_error(t_game_set *game_set, char *message,
 			void (*f)(t_game_set *));
+int		ft_render(t_game_set *game_set);
 void	ft_build_images(t_game_set *game_set);
-void	ft_render(t_game_set *game_set);
 void	ft_free_map(t_game_set *game_set);
 void	ft_free(t_game_set *game_set);
 

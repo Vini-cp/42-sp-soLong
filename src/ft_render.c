@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 03:20:16 by coder             #+#    #+#             */
-/*   Updated: 2022/01/30 20:38:47 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/31 04:07:07 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,12 @@ static void	ft_render_game(t_game_set *game_set)
 	}
 }
 
-void	ft_render(t_game_set *game_set)
+int	ft_render(t_game_set *game_set)
 {
 	mlx_clear_window(game_set->mlx, game_set->win);
 	if (game_set->game_won == 1)
 		ft_render_exit(game_set);
 	else
 		ft_render_game(game_set);
+	return (SUCCESS_EXIT);
 }
